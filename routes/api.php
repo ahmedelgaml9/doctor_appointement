@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\BookingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-    Route::post('login', [UserController::class,'login']);
-    Route::post('register', [UserController::class ,'register']);
-    Route::post('patient_book', 'App\Http\Controllers\Api\BookingController@booking')->middleware('auth:api');
-    Route::get('availabletime', 'App\Http\Controllers\Api\BookingController@availabletimeslots')->middleware('auth:api');
+ Route::post('login', [UserController::class,'login']);
+ Route::post('register', [UserController::class ,'register']);
+ Route::post('patient_book', [BookingController::class,'booking'])->middleware('auth:api');
+ Route::get('availabletime', [BookingController::class ,'availabletimeslots'])->middleware('auth:api');
+    
 
 

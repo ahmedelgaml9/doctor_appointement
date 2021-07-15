@@ -79,12 +79,7 @@ class DoctorslotController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         //
@@ -120,14 +115,14 @@ class DoctorslotController extends Controller
       {
 
 
-       return redirect('/doctors/slots')->with('success', 'Slots inserted!');
+       return redirect('/doctors/slots')->with('success', 'Slots Updated!');
 
       }
 
       else
 
       {
-         return redirect('/doctors/slots')->with('error', 'Slots not  inserted!');
+         return redirect('/doctors/slots')->with('error', 'Slots not  Updated!');
 
       }
     }

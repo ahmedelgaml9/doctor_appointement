@@ -3,7 +3,7 @@
 
 <div class="card card-primary">
  <div class="card-header">
- <h3 class="card-title">Quick Example</h3>
+ <h3 class="card-title">Edit Time Slot</h3>
        
 </div>
 {!! Form:: model($row,array('method' => 'PATCH','action' => ['App\Http\Controllers\DoctorslotController@update',$row->id])) !!}
@@ -25,7 +25,7 @@
                  
                     <div class="form-group">
                     <label for="exampleInputEmail1">Time</label>
-                    <input type="text" class="form-control" name="" id="exampleInputEmail1" placeholder="Enter Time">
+                    <input type="text" class="form-control"  name="time" value="{{$row->time}}" id="exampleInputEmail1" placeholder="Enter Time">
                   </div>
                   <div class="form-group">
 
