@@ -25,7 +25,7 @@ class BookingController extends Controller
     {
         $validator = Validator::make($request->all(), [
 
-             'day' => 'required',
+             'day' => 'required|date_format:Y-m-d|after:yesterday',
              'slot_id' => 'required',
              'user_id' => 'required',
 
@@ -36,19 +36,34 @@ class BookingController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
          } 
 
+         $slot= DoctorSlots::where('id',$request->slot_id)->first();
+
+         if(empty($slot))
+         {
+
+
+           return response()->json(['status'=>'false','error'=>'this slot not found']);
+
+
+         }
+
+         else{
+
          $insert= new Book;
          $insert->day= $request->day;
          $insert->slot_id = $request->slot_id;
          $insert->user_id = $request->user_id;
-
          $insert->save();
+
+        
+        }
+
 
          if($insert)
 
          {
 
          
-         $slot= DoctorSlots::where('id',$insert->slot_id)->first();
          $slot->status="unactive";
          $slot->save();
 
