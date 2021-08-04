@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Doctor Appointement</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -93,12 +93,11 @@
                   <p>Logout</p>
                 </a>
 
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                 @csrf
+                    
+              </form>
               </li>
-             
             </ul>
           </li>
          
